@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+
+div {    
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+#fpsFrame {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 50px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: thin solid rgba(0, 0, 0, 0.6);
+    color: black;
+    font-family: Droid Sans, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    opacity: .25;
+    transition: opacity .5s;
+}
+
+#fpsFrame:hover {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+#main {
+    position: relative;
+}

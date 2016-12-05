@@ -18,6 +18,7 @@ System.register([], function(exports_1, context_1) {
                     this.drawBackground(ctx);
                     this.drawFullSector(ctx);
                     this.drawValueSector(ctx);
+                    this.drawArrow(ctx);
                     ctx.restore();
                 };
                 Gauge.prototype.drawBackground = function (ctx) {
@@ -81,6 +82,25 @@ System.register([], function(exports_1, context_1) {
                     // ctx.stroke();
                     ctx.fillStyle = "lightblue";
                     ctx.fill();
+                };
+                Gauge.prototype.drawArrow = function (ctx) {
+                    ctx.save();
+                    var cx = this.width / 2;
+                    var cy = this.height;
+                    var arrowLength = this.height + 25;
+                    var arrowThickness = 5;
+                    var arrowColor = "black";
+                    var angle = Math.PI * (1 + this.value);
+                    ctx.translate(cx, cy);
+                    ctx.rotate(angle);
+                    ctx.beginPath();
+                    ctx.moveTo(0, -arrowThickness / 2);
+                    ctx.lineTo(arrowLength, 0);
+                    ctx.lineTo(0, arrowThickness / 2);
+                    ctx.closePath();
+                    ctx.fillStyle = arrowColor;
+                    ctx.fill();
+                    ctx.restore();
                 };
                 return Gauge;
             }());

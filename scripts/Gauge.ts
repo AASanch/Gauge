@@ -1,7 +1,6 @@
 export class Gauge {
-
     width: number = 100;
-    height: number = 100;
+    height: number = 100;    
     thickness: number = 20;
     value: number = .5;
 
@@ -12,6 +11,7 @@ export class Gauge {
         this.drawBackground(ctx);
         this.drawFullSector(ctx);
         this.drawValueSector(ctx);
+        this.drawArrow(ctx);
         ctx.restore();
     }
 
@@ -89,5 +89,25 @@ export class Gauge {
         // ctx.stroke();
         ctx.fillStyle = "lightblue";
         ctx.fill();
+    }
+
+    drawArrow(ctx: CanvasRenderingContext2D) {
+        ctx.save();
+        let cx = this.width/2;
+        let cy = this.height;
+        let arrowLength = this.height + 25;
+        let arrowThickness = 5;
+        let arrowColor = "black";
+        let angle = Math.PI * (1 + this.value);
+        ctx.translate(cx, cy);
+        ctx.rotate(angle)
+        ctx.beginPath();
+        ctx.moveTo(0, -arrowThickness / 2);
+        ctx.lineTo(arrowLength, 0);
+        ctx.lineTo(0, arrowThickness / 2);
+        ctx.closePath();
+        ctx.fillStyle = arrowColor;
+        ctx.fill();
+        ctx.restore();
     }
 }

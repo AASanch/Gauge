@@ -47,6 +47,12 @@ System.register(["./Gauge"], function(exports_1, context_1) {
                     this._gauge.height = 100;
                     this._gauge.thickness = 50;
                     this._gauge.value = .25;
+                    this._gauge.valueColor = "blue";
+                    var subSector = new Gauge_1.GaugeSector();
+                    subSector.color = "red";
+                    subSector.startValue = 0.25;
+                    subSector.endValue = 0.4;
+                    this._gauge.subSectors.push(subSector);
                 };
                 /**
                  * Called every frame to calculate the fps.

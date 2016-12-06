@@ -2,7 +2,7 @@ window.onload = () => {
     var app = new App();
 };
 
-import { Gauge } from "./Gauge";
+import { Gauge, GaugeSector } from "./Gauge";
 
 export class App {
     private canvas: HTMLCanvasElement;
@@ -51,6 +51,13 @@ export class App {
         this._gauge.height = 100;
         this._gauge.thickness = 50;
         this._gauge.value = .25;
+        this._gauge.valueColor = "blue";
+
+        var subSector = new GaugeSector();
+        subSector.color = "red";
+        subSector.startValue = 0.25;
+        subSector.endValue = 0.4;
+        this._gauge.subSectors.push(subSector);
     }
 
     /**
